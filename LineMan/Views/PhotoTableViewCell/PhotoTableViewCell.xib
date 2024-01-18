@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="360" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOp-Qo-Tcz">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOp-Qo-Tcz" userLabel="MyView">
                         <rect key="frame" x="12" y="12" width="360" height="80"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0L1-W4-SaO">
@@ -27,21 +27,52 @@
                                     <constraint firstAttribute="height" constant="80" id="p5k-UY-5MZ"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oxV-7B-XeP">
-                                <rect key="frame" x="92" y="0.0" width="268" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ncq-nC-BaD">
+                                <rect key="frame" x="88" y="0.0" width="44" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xdJ-2g-PYW" userLabel="Description">
+                                <rect key="frame" x="88" y="21" width="68" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" id="wAE-Cv-CH8">
+                                <rect key="frame" x="298" y="1" width="45" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" id="h3R-23-7Mk">
+                                        <rect key="frame" x="0.0" y="0.0" width="18.666666666666668" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg6-ky-u1Y">
+                                        <rect key="frame" x="18.666666666666671" y="0.0" width="26.333333333333329" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.59215688710000003" green="0.59215688710000003" blue="0.59215688710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="Wmg-ff-RMC"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="NFJ-Ij-Uh0"/>
+                                    <constraint firstAttribute="width" constant="45" id="dMu-SR-ouI"/>
+                                    <constraint firstItem="fg6-ky-u1Y" firstAttribute="leading" secondItem="h3R-23-7Mk" secondAttribute="trailing" constant="1" id="lgL-GG-aI4"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="360" id="5a3-18-F26"/>
+                            <constraint firstItem="xdJ-2g-PYW" firstAttribute="leading" secondItem="0L1-W4-SaO" secondAttribute="trailing" constant="8" id="5hi-gg-t57"/>
                             <constraint firstAttribute="trailing" secondItem="0L1-W4-SaO" secondAttribute="trailing" constant="280" id="5j5-5s-FGn"/>
+                            <constraint firstItem="Ncq-nC-BaD" firstAttribute="leading" secondItem="0L1-W4-SaO" secondAttribute="trailing" constant="8" id="AVh-Cw-qho"/>
                             <constraint firstItem="0L1-W4-SaO" firstAttribute="leading" secondItem="MOp-Qo-Tcz" secondAttribute="leading" id="GQK-et-dmL"/>
-                            <constraint firstAttribute="trailing" secondItem="oxV-7B-XeP" secondAttribute="trailing" id="MVN-g9-12b"/>
                             <constraint firstItem="0L1-W4-SaO" firstAttribute="top" secondItem="MOp-Qo-Tcz" secondAttribute="top" id="OEN-Nf-a8p"/>
                             <constraint firstAttribute="bottom" secondItem="0L1-W4-SaO" secondAttribute="bottom" id="iPa-jm-tjk"/>
-                            <constraint firstItem="oxV-7B-XeP" firstAttribute="top" secondItem="MOp-Qo-Tcz" secondAttribute="top" id="n7W-n4-RZy"/>
-                            <constraint firstAttribute="bottom" secondItem="oxV-7B-XeP" secondAttribute="bottom" id="rOs-fQ-I8P"/>
-                            <constraint firstItem="oxV-7B-XeP" firstAttribute="leading" secondItem="0L1-W4-SaO" secondAttribute="trailing" constant="12" id="u7O-9v-bQl"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -55,41 +86,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <point key="canvasLocation" x="117.55725190839694" y="39.436619718309863"/>
         </tableViewCell>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ncq-nC-BaD">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-31" y="132"/>
-        </label>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xdJ-2g-PYW" userLabel="Description">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-292" y="67"/>
-        </label>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="likeCount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEK-D8-Qv5" userLabel="likeCount">
-            <rect key="frame" x="0.0" y="0.0" width="71.666666666666657" height="45"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="-289" y="-2"/>
-        </label>
         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" id="HEG-7c-YvW">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+            <rect key="frame" x="0.0" y="0.0" width="27" height="17"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="-160" y="-189"/>
+            <point key="canvasLocation" x="3.8167938931297707" y="132.04225352112678"/>
         </imageView>
-        <stackView opaque="NO" contentMode="scaleToFill" id="frl-5r-f22">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="18"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <viewLayoutGuide key="safeArea" id="8fy-h5-Yds"/>
-            <point key="canvasLocation" x="-289" y="-103"/>
-        </stackView>
     </objects>
     <resources>
         <image name="like" width="18" height="18"/>
