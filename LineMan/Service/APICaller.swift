@@ -21,7 +21,7 @@ class APICaller {
     
     static let shared = APICaller()
     
-    func getLineDataCollection(completion: @escaping (Result<PhotoModel, APIError>) -> Void) {
+    func getPhotoDataCollection(completion: @escaping (Result<PhotoModel, APIError>) -> Void) {
         // Check URL
         guard let url = URL(string: "\(NetworkConstants.baseURL)") else {return}
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
