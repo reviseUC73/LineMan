@@ -10,27 +10,45 @@ import SDWebImage
 
 class PhotoTableViewCell: UITableViewCell {
     
+    // MARK: - Static Varibale
+    static var identifier = "PhotoTableViewCell"
+    static var loadImageNameIdentify = "placeholder"
+    
+    // MARK: - Static Function
+    static func registerCell() -> UINib {
+        UINib(nibName: PhotoTableViewCell.identifier , bundle: nil)
+    }
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
-    
     @IBOutlet weak var photoImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func configure(with viewModel: PhotoCellViewModel) {
-        print("MARK : viewModel.imageURLs",viewModel.imageURLs)
+    // MARK: - SETUP PhotoCellViewModel
+    func configure(viewModel: PhotoCellViewModel) {
         nameLabel.text = viewModel.name
         descriptionLabel.text = viewModel.description
         likeCountLabel.text = viewModel.likeCount
-        if let urlString = viewModel.imageURLs.first, let url = URL(string: urlString) {
-            photoImage.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder"))
+        configurePhotoImage(viewModel)
+    }
+    
+    fileprivate func configurePhotoImage(_ viewModel: PhotoCellViewModel) {
+        if let urlString = viewModel.imageURLs.first {
+            if let url = URL(string: urlString) {
+                photoImage.sd_setImage(with: url, placeholderImage: UIImage(named: PhotoTableViewCell.loadImageNameIdentify ))
+            }
         } else {
-            photoImage.image = UIImage(named: "placeholder") // Default image if no URL is available
-        }}}
+            photoImage.image = UIImage(named: PhotoTableViewCell.loadImageNameIdentify)
+        }
+    }
+    
+    
+}
      
     
 

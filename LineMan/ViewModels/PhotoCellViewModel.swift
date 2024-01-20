@@ -12,7 +12,6 @@ class PhotoCellViewModel {
 
     init(photo: Photo) {
         self.photo = photo
-//        self.image = makeImageURL(movie.posterPath ?? "")
     }
 
     var name: String {
@@ -28,7 +27,7 @@ class PhotoCellViewModel {
     }
 
     var imageURLs: [String] {
-        print("imageURLs", photo.imageURL)
+   
         return photo.imageURL
     }
     
