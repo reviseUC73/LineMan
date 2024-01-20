@@ -16,10 +16,18 @@ class MainViewController: UIViewController {
     // MARK: - ViewModels
     private var viewModel = PhotosViewModel()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        
+//        setUpTableViews()
+        tableView.estimatedRowHeight = 100 // Or whatever your estimated height is
+        tableView.rowHeight = UITableView.automaticDimension
         fetchPhotoData() // Call -> pass nil
+        
+        
     }
     
     @objc private func refreshData(_ sender: UIRefreshControl) {
@@ -36,20 +44,59 @@ class MainViewController: UIViewController {
         }
     }
     
+        // MARK: - SETUP TABLE
+        func setupTableView() {
+            let refreshControl = UIRefreshControl()
+            refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+            self.tableView.refreshControl = refreshControl
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
+            self.tableView.backgroundColor = .systemBackground
+            self.registerCells()}
+    
+//    private func setUpTableViews() {
+//        let refreshControl = UIRefreshControl()
+//        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+//        self.tableView.refreshControl = refreshControl
+//        self.tableView.delegate = self
+//        self.tableView.dataSource = self
+//        self.tableView.backgroundColor = .systemBackground
+//        self.tableView.register(PhotoTableViewCells.self, forCellReuseIdentifier: PhotoTableViewCells.identifier)}
+    
+    
 }
+
+
+//// MARK: - UITableViewDataSource
+//extension MainViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.numberOfPhotos
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCells.identifier, for: indexPath) as? PhotoTableViewCells,
+//              let photo = viewModel.photo(at: indexPath.row) else {
+//            fatalError("Could not dequeue PhotoTableViewCell")
+//        }
+//        
+//        let cellViewModel = PhotoCellViewModel(photo: photo)
+//        cell.configure(with : cellViewModel)
+//        return cell
+//    }
+//}
+//
+//// MARK: - UITableViewDelegate
+//extension MainViewController: UITableViewDelegate {
+//
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//}
+
 
 extension MainViewController: UITableViewDataSource , UITableViewDelegate {
     
-    // MARK: - SETUP TABLE 
-    func setupTableView() {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        self.tableView.refreshControl = refreshControl
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.backgroundColor = .systemBackground
-        self.registerCells()
-    }
+
     
     // Table -> Resgier Cell
     private func registerCells() {
@@ -71,6 +118,12 @@ extension MainViewController: UITableViewDataSource , UITableViewDelegate {
         cell.configure(viewModel: cellViewModel)
         return cell
     }
+    // Table -> Delegate -> Deselect all row in table
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           tableView.deselectRow(at: indexPath, animated: true)
+           // Handle cell selection
+       }
+    
 }
 
 

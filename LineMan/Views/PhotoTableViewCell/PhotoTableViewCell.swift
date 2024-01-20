@@ -14,11 +14,6 @@ class PhotoTableViewCell: UITableViewCell {
     static var identifier = "PhotoTableViewCell"
     static var loadImageNameIdentify = "placeholder"
     
-    // MARK: - Static Function
-    static func registerCell() -> UINib {
-        UINib(nibName: PhotoTableViewCell.identifier , bundle: nil)
-    }
-    
     // MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -47,6 +42,10 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Static Function
+    static func registerCell() -> UINib {
+        UINib(nibName: PhotoTableViewCell.identifier , bundle: nil)
+    }
     
 }
      
