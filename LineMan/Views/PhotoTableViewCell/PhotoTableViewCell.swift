@@ -22,6 +22,7 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//        anotherSetupElement()
     }
     
     // MARK: - SETUP PhotoCellViewModel
@@ -42,10 +43,29 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
-    // MARK: - Static Function
-    static func registerCell() -> UINib {
-        UINib(nibName: PhotoTableViewCell.identifier , bundle: nil)
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        // Reset the state of your cell here
+//        nameLabel.text = nil
+//        descriptionLabel.text = nil
+//        likeCountLabel.text = nil
+//        photoImage.image = nil
+//    }
+    
+    
+    private func anotherSetupElement(){
+//        descriptionLabel.numberOfLines = 0 // This allows for multiline text
+//        likeCountLabel.numberOfLines = 1
+        
+//        descriptionLabel.lineBreakMode = .byWordWrapping
+//        descriptionLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
+//        descriptionLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .vertical)
     }
+    
+    
+    
+    
     
 }
      

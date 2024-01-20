@@ -21,7 +21,6 @@
 		42B4CA762B598C4600C7C50D /* PhotoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4CA752B598C4600C7C50D /* PhotoCellViewModel.swift */; };
 		42B4CA7A2B59902B00C7C50D /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4CA792B59902B00C7C50D /* PhotoViewModel.swift */; };
 		42B4CA7D2B599CB400C7C50D /* SDWebImageLinkPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 42B4CA7C2B599CB400C7C50D /* SDWebImageLinkPlugin */; };
-		42B4CA852B5BD93E00C7C50D /* PhotoTableViewCell+Exten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4CA842B5BD93E00C7C50D /* PhotoTableViewCell+Exten.swift */; };
 		42B4CA882B5BDE7C00C7C50D /* PhotoTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B4CA872B5BDE7C00C7C50D /* PhotoTableViewCells.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		42B4CA6F2B595B1800C7C50D /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		42B4CA752B598C4600C7C50D /* PhotoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellViewModel.swift; sourceTree = "<group>"; };
 		42B4CA792B59902B00C7C50D /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
-		42B4CA842B5BD93E00C7C50D /* PhotoTableViewCell+Exten.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoTableViewCell+Exten.swift"; sourceTree = "<group>"; };
 		42B4CA872B5BDE7C00C7C50D /* PhotoTableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCells.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				42B4CA6E2B595B1800C7C50D /* PhotoTableViewCell.swift */,
-				42B4CA842B5BD93E00C7C50D /* PhotoTableViewCell+Exten.swift */,
 				42B4CA6F2B595B1800C7C50D /* PhotoTableViewCell.xib */,
 			);
 			path = PhotoTableViewCell;
@@ -248,7 +245,6 @@
 				42B4CA622B59409600C7C50D /* PhotoModel.swift in Sources */,
 				42B4CA4A2B593EDC00C7C50D /* SceneDelegate.swift in Sources */,
 				42B4CA7A2B59902B00C7C50D /* PhotoViewModel.swift in Sources */,
-				42B4CA852B5BD93E00C7C50D /* PhotoTableViewCell+Exten.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,14 +21,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        
-//        setUpTableViews()
         tableView.estimatedRowHeight = 100 // Or whatever your estimated height is
         tableView.rowHeight = UITableView.automaticDimension
         fetchPhotoData() // Call -> pass nil
         
         
     }
+    
     
     @objc private func refreshData(_ sender: UIRefreshControl) {
             fetchPhotoData {
@@ -38,6 +37,7 @@ class MainViewController: UIViewController {
     
     private func fetchPhotoData(completion: (() -> Void)? = nil) {
         viewModel.fetchPhotos()
+        
         viewModel.onDataFetched = { [weak self] in
             self?.tableView.reloadData()
             completion?()
@@ -45,14 +45,27 @@ class MainViewController: UIViewController {
     }
     
         // MARK: - SETUP TABLE
-        func setupTableView() {
-            let refreshControl = UIRefreshControl()
-            refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-            self.tableView.refreshControl = refreshControl
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            self.tableView.backgroundColor = .systemBackground
-            self.registerCells()}
+    func setupTableView() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = .systemBackground
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension // Or provide an estimated height
+//        tableView.estimatedRowHeight = 44
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 44.0
+        self.registerCells()
+    }
+    
+    // Table -> Resgier Cell
+    private func registerCells() {
+        self.tableView.register( UINib(nibName: PhotoTableViewCell.identifier , bundle: nil), forCellReuseIdentifier: PhotoTableViewCell.identifier)
+    }
+    
+    
     
 //    private func setUpTableViews() {
 //        let refreshControl = UIRefreshControl()
@@ -98,10 +111,7 @@ extension MainViewController: UITableViewDataSource , UITableViewDelegate {
     
 
     
-    // Table -> Resgier Cell
-    private func registerCells() {
-        self.tableView.register(PhotoTableViewCell.registerCell(), forCellReuseIdentifier: PhotoTableViewCell.identifier)
-    }
+    
     
     // Table -> NumberOfRow
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
