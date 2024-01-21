@@ -20,7 +20,7 @@ enum APIError: Error {
 class APICaller {
     
     static let shared = APICaller()
-    private let requestTimeoutInterval: TimeInterval = 30  // 30 seconds
+    private let requestTimeoutInterval: TimeInterval = 30  
 
     func getPhotoDataCollection(completion: @escaping (Result<PhotoModel, APIError>) -> Void) {
         

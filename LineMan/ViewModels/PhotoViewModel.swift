@@ -35,7 +35,7 @@ class PhotosViewModel {
         return photos.count
     }
 
-    // Get a specific photo for a given index
+    // Get specific photo for index
     func photo(at index: Int) -> Photo? {
         guard index < photos.count else { return nil }
         return photos[index]
