@@ -43,30 +43,10 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
-    
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        // Reset the state of your cell here
-//        nameLabel.text = nil
-//        descriptionLabel.text = nil
-//        likeCountLabel.text = nil
-//        photoImage.image = nil
-//    }
-    
-    
-    private func anotherSetupElement(){
-//        descriptionLabel.numberOfLines = 0 // This allows for multiline text
-//        likeCountLabel.numberOfLines = 1
-        
-//        descriptionLabel.lineBreakMode = .byWordWrapping
-//        descriptionLabel.setContentHuggingPriority(UILayoutPriority(rawValue: 249), for: .vertical)
-//        descriptionLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .vertical)
+    private func setLabelColor(){
+        descriptionLabel.textColor = UIColor(red: 0.246, green: 0.246, blue: 0.246, alpha: 1)
+        nameLabel.textColor = .red
     }
-    
-    
-    
-    
-    
 }
      
     
