@@ -110,7 +110,9 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource , UITableViewDelegate {
     
 
-    
+    private func tableView(_ tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
     
     // Table -> NumberOfRow
@@ -126,6 +128,7 @@ extension MainViewController: UITableViewDataSource , UITableViewDelegate {
         }
         let cellViewModel = PhotoCellViewModel(photo: photo)
         cell.configure(viewModel: cellViewModel)
+     
         return cell
     }
     // Table -> Delegate -> Deselect all row in table

@@ -8,7 +8,11 @@
 import UIKit
 
 class PhotoTableViewCells: UITableViewCell {
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        descriptionLabel.sizeToFit()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
