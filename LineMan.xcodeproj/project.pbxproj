@@ -79,7 +79,6 @@
 				42B4CA5B2B593F3300C7C50D /* ViewModels */,
 				42B4CA472B593EDC00C7C50D /* AppDelegate.swift */,
 				42B4CA492B593EDC00C7C50D /* SceneDelegate.swift */,
-				42B4CA522B593EDE00C7C50D /* LaunchScreen.storyboard */,
 				42B4CA552B593EDE00C7C50D /* Info.plist */,
 			);
 			path = LineMan;
@@ -105,6 +104,7 @@
 		42B4CA5D2B593F4A00C7C50D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42B4CA522B593EDE00C7C50D /* LaunchScreen.storyboard */,
 				42B4CA722B59625000C7C50D /* PhotoTableView */,
 				42B4CA6C2B595A8800C7C50D /* PhotoTableViewCell */,
 			);
