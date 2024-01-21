@@ -22,6 +22,7 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureBoaderCell()
     }
     
     // MARK: - SETUP PhotoCellViewModel
@@ -30,6 +31,8 @@ class PhotoTableViewCell: UITableViewCell {
         descriptionLabel.text = viewModel.description
         likeCountLabel.text = viewModel.likeCount
         configurePhotoImage(viewModel)
+        
+        
     }
     
     fileprivate func configurePhotoImage(_ viewModel: PhotoCellViewModel) {
@@ -40,6 +43,12 @@ class PhotoTableViewCell: UITableViewCell {
         } else {
             photoImage.image = UIImage(named: PhotoTableViewCell.loadImageNameIdentify)
         }
+        photoImage.layer.cornerRadius = 4
+    }
+    
+    private func configureBoaderCell(){
+        layer.borderColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1).cgColor
+        layer.borderWidth = 1.0
     }
     
 }
