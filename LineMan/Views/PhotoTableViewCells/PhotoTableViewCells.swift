@@ -15,13 +15,10 @@ class PhotoTableViewCells: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     static let identifier = "PhotoTableViewCells"
@@ -94,41 +91,8 @@ class PhotoTableViewCells: UITableViewCell {
         }
     }
     
-    
-//    private func setupConstraints() {
-//        NSLayoutConstraint.activate([
-//            // Fixed constraints for photoImageView
-//            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-//            photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-//            photoImageView.widthAnchor.constraint(equalToConstant: 80), // Fixed width
-//            photoImageView.heightAnchor.constraint(equalToConstant: 80), // Fixed height
-//
-//            // Constraints for nameLabel
-//            nameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 12),
-//            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-//            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-//            
-//            // Constraints for descriptionLabel
-//            descriptionLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-//            descriptionLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-//            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
-//
-//            // Constraints for likeCountLabel
-//            likeCountLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-//            likeCountLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-//            likeCountLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 4),
-//        ])
-//        
-//        // This constraint is important for cells with dynamic content
-//        let descriptionLabelBottomConstraint = descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -12)
-//        descriptionLabelBottomConstraint.priority = UILayoutPriority(999) // Slightly less than required to avoid conflicts
-//        descriptionLabelBottomConstraint.isActive = true
-//    }
-
 
     private func setupViews2() {
-
-        // Set properties for labels
         nameLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
 
@@ -137,8 +101,6 @@ class PhotoTableViewCells: UITableViewCell {
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(likeImageView)
         contentView.addSubview(likeCountLabel)
-
-        // Set up additional properties like fonts, text alignment, etc.
     }
     
     private func setupConstraints() {
@@ -165,26 +127,5 @@ class PhotoTableViewCells: UITableViewCell {
             descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
         
-        
-        
-//        // Like button and count constraints (assuming horizontal stack view)
-//        let likeStackView = UIStackView(arrangedSubviews: [likeImageView, likeCountLabel])
-//        likeStackView.axis = .horizontal
-//        likeStackView.translatesAutoresizingMaskIntoConstraints = false
-//        contentView.addSubview(likeStackView)
-//        
-//        NSLayoutConstraint.activate([
-//            likeStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
-//            likeStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-//            likeStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
-//        ])
-        
     }
-    
-
-
-       
-       
-    
-
 }

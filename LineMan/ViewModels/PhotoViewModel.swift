@@ -17,12 +17,8 @@ class PhotosViewModel {
     // Fetches photo data from the API
     func fetchPhotos() {
         if !(photos.isEmpty){
-            print(photos.count)
-            print("Remove old data -> Will resfesh")
             photos.removeAll()
-            print(photos.count)
         }
-        
         APICaller.shared.getPhotoDataCollection { [weak self] result in DispatchQueue.main.async {
                 switch result {
                 case Result.success(let photoModel):

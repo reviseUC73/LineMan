@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				42B4CA602B593FEB00C7C50D /* Resources */,
-				42B4CA5F2B593F9800C7C50D /* Service */,
+				42B4CA5F2B593F9800C7C50D /* Network */,
 				42B4CA5C2B593F3E00C7C50D /* Models */,
 				42B4CA5D2B593F4A00C7C50D /* Views */,
 				42B4CA5B2B593F3300C7C50D /* ViewModels */,
@@ -114,13 +114,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		42B4CA5F2B593F9800C7C50D /* Service */ = {
+		42B4CA5F2B593F9800C7C50D /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				42B4CA662B594D7400C7C50D /* NetworkConstants.swift */,
 				42B4CA682B594D8900C7C50D /* APICaller.swift */,
 			);
-			path = Service;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		42B4CA602B593FEB00C7C50D /* Resources */ = {

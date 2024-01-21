@@ -20,11 +20,18 @@ enum APIError: Error {
 class APICaller {
     
     static let shared = APICaller()
-    
+    private let requestTimeoutInterval: TimeInterval = 30  // 30 seconds
+
     func getPhotoDataCollection(completion: @escaping (Result<PhotoModel, APIError>) -> Void) {
         
         guard let url = URL(string: "\(NetworkConstants.baseURL)") else {return}
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        
+        // Create a URLSessionConfiguration with a custom timeout interval
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = requestTimeoutInterval
+        let session = URLSession(configuration: configuration)
+        
+        let task = session.dataTask(with: url) { data, response, error  in
             if error != nil {
                 completion(Result.failure(APIError.canNotParseData))
                 return
@@ -35,8 +42,8 @@ class APICaller {
             }
             do {
                 let photoModel = try JSONDecoder().decode(PhotoModel.self, from: data)
-                print(photoModel.photos.count)
                 print("API is Called")
+                print("Number of data",photoModel.photos.count)
                 completion(Result.success(photoModel)
                 )
             } catch {

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "placeholder.png",
+      "filename" : "866-8669429_800-x-800-2-loading-clipart.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "866-8669429_800-x-800-2-loading-clipart@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "866-8669429_800-x-800-2-loading-clipart@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

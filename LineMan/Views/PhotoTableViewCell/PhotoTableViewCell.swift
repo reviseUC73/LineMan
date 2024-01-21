@@ -22,7 +22,6 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        anotherSetupElement()
     }
     
     // MARK: - SETUP PhotoCellViewModel
@@ -43,10 +42,6 @@ class PhotoTableViewCell: UITableViewCell {
         }
     }
     
-    private func setLabelColor(){
-        descriptionLabel.textColor = UIColor(red: 0.246, green: 0.246, blue: 0.246, alpha: 1)
-        nameLabel.textColor = .red
-    }
 }
      
     
