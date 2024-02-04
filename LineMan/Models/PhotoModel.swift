@@ -9,17 +9,17 @@ import Foundation
 
 // MARK: - PhotoModel
 struct PhotoModel: Codable {
-    let currentPage: Int
-    let totalPages: Int
-    let totalItems: Int
-    let feature: String
+//    let currentPage: Int
+//    let totalPages: Int
+//    let totalItems: Int
+//    let feature: String
     let photos: [Photo]
 
     enum CodingKeys: String, CodingKey {
-        case currentPage = "current_page"
-        case totalPages = "total_pages"
-        case totalItems = "total_items"
-        case feature
+//        case currentPage = "current_page"
+//        case totalPages = "total_pages"
+//        case totalItems = "total_items"
+//        case feature
         case photos
     }
 }

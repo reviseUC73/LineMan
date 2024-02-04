@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
         self.tableView.dataSource = self
         
         setupTableView()
-        fetchPhotoData()
+        fetchProcess()
     }
     
     // MARK: - SETUP TABLE
@@ -32,22 +32,32 @@ class MainViewController: UIViewController {
         self.tableView.refreshControl = refreshControl
         self.tableView.backgroundColor = .systemBackground
         self.tableView.register( UINib(nibName: PhotoTableViewCell.identifier , bundle: nil), forCellReuseIdentifier: PhotoTableViewCell.identifier)
+    }
+    
+    // MARK: Trailing Closures
+    // fetchProcess -> use firstload viewDidload >>  completion is nil (case :  Nil)
+    //                -> use when Refresh -> will call func refreshData -> func will call fetchProcess
+    //                   by set completion = sender.endRefreshing() and use it (case : () -> Void)
+    private func fetchProcess(completion: (() -> Void)? = nil) {
+        print("1 v")
+        viewModel.fetchPhotos()
+        print("onF 2 v")
+        viewModel.onDataFetched = { [weak self] in self?.tableView.reloadData(); print("2.5 v"); completion?() } /// set up function of viewModels
+        print("end 3 v")
         
     }
     
-    private func fetchPhotoData(completion: (() -> Void)? = nil) {
-        viewModel.fetchPhotos()
-        viewModel.onDataFetched = { [weak self] in
-            self?.tableView.reloadData()
-            completion?()
-        }
-    }
-    
     @objc private func refreshData(_ sender: UIRefreshControl) {
-            fetchPhotoData {
-                sender.endRefreshing()
-            }
-        }
+        fetchProcess() { sender.endRefreshing() }                             // Tailing Closures
+        
+//        fetchProcess(completion:{ () -> Void in sender.endRefreshing() } )    // Normal Closures 1
+//        fetchProcess(completion:{ sender.endRefreshing() } )                  // Normal Closures 2
+//
+//        fetchProcess(completion: senderEndRefreshing )                        // Call Function
+//        func senderEndRefreshing() -> Void {
+//            sender.endRefreshing()}
+        
+    }
 }
 
 
@@ -66,14 +76,14 @@ extension MainViewController: UITableViewDataSource , UITableViewDelegate {
         }
         let cellViewModel = PhotoCellViewModel(photo: photo)
         cell.configure(viewModel: cellViewModel)
-     
+        
         return cell
     }
     
     // Table -> Define deselect all row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           tableView.deselectRow(at: indexPath, animated: true)
-       }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
 
