@@ -22,6 +22,7 @@ class APICaller {
     static let shared = APICaller()
     private let requestTimeoutInterval: TimeInterval = 30  
 
+    // Completin 1 para function -> return void and para of parameter function is Result<PhotoModel, APIError>
     func getPhotoDataCollection(completion: @escaping (Result<PhotoModel, APIError>) -> Void) {
         
         guard let url = URL(string: "\(NetworkConstants.baseURL)") else {return}
@@ -33,10 +34,12 @@ class APICaller {
         
         let task = session.dataTask(with: url) { data, response, error  in
             if error != nil {
+                print("1")
                 completion(Result.failure(APIError.canNotParseData))
                 return
             }
             guard let data = data else {
+                print("2")
                 completion(Result.failure(APIError.failedToGetData))
                 return
             }
@@ -44,13 +47,14 @@ class APICaller {
                 let photoModel = try JSONDecoder().decode(PhotoModel.self, from: data)
                 print("API is Called")
                 print("Number of data",photoModel.photos.count)
-                completion(Result.success(photoModel)
-                )
+                completion(Result.success(photoModel))
             } catch {
+                print("3")
                 completion(Result.failure(APIError.failedToGetData))
             }
         }
         
         task.resume()
     }
+    
 }

@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     
     // MARK: Trailing Closures
     // fetchProcess -> use firstload viewDidload >>  completion is nil (case :  Nil)
-    //                -> use when Refresh -> will call func refreshData -> func will call fetchProcess
+    //              -> use when Refresh -> will call func refreshData -> func will call fetchProcess
     //                   by set completion = sender.endRefreshing() and use it (case : () -> Void)
     private func fetchProcess(completion: (() -> Void)? = nil) {
         print("1 v")
